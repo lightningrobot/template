@@ -6,9 +6,8 @@ import asyncio
 
 # 创建Adapter实例
 adapter_instance = lightningrobot_adapter_console.ConsoleAdapter()
-
-# 根据GreetingPlugin的要求，创建实例时传入Adapter实例
-test_plugin = lightningrobot_plugin_test.Main(adapter_instance)  # 修改这里，传入adapter_instance作为参数
+# 创建实例时传入Adapter实例
+test_plugin = lightningrobot_plugin_test.Main(adapter_instance)
 
 # 创建包含插件的列表
 plugins = [test_plugin]
@@ -19,4 +18,4 @@ main_instance = Main(adapter_instance, plugins)
 try:
     asyncio.run(main_instance.start())
 except EOFError:
-    log.error("错误：EOFError！这通常是由您的输入不规范或关闭机器人引起的，这是正常行为，不必担心。")  # 可以在这里添加您想要的错误处理逻辑
+    asyncio.run(log.error("错误：EOFError！这通常是由您的输入不规范或关闭机器人引起的，这是正常行为，不必担心。"))  # 可以在这里添加您想要的错误处理逻辑
