@@ -1,0 +1,4 @@
+lightningrobot
+lightningrobot_adapter_console
+lightningrobot_plugin_test
+asyncio
